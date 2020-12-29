@@ -8,6 +8,10 @@
   },
   "license": "ISC",
   "author": "Juan Felipe Camargo",
+  "engines": {
+    "npm": ">=6",
+    "node": ">=12.14.0"
+  },
   "scripts": {
     "build": "webpack --config=webpack/webpack.prod.js",
     "start:dev": "webpack serve --config=webpack/webpack.dev.js",
@@ -22,6 +26,22 @@
     "lint:css": "stylelint src/**/*.{js,jsx,ts,tsx}",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals",
     "lint:js": "npm run lint:eslint -- . --ext .js,.jsx,.ts,.tsx"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix",
+      "git add --force"
+    ],
+    "*.{md,json}": [
+      "prettier --write",
+      "git add --force"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
