@@ -1,0 +1,48 @@
+$columns: 12; // Number of columns in the grid system
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 100%;
+  align-items: flex-start;
+  position: relative;
+}
+
+.col {
+  flex: 1 1 100%;
+}
+
+@mixin generate-columns($break: '') {
+  @for $width from 1 through $columns {
+    $percentage: $width / $columns * 100%;
+    @if ($break != '') {
+      .col-#{$width}-#{$break} {
+        flex-basis: $percentage;
+        max-width: $percentage;
+      }
+    } @else {
+      .col-#{$width} {
+        flex-basis: $percentage;
+        max-width: $percentage;
+      }
+    }
+  }
+}
+
+@include generate-columns;
+
+@media (min-width: #{map-get($breakpoints-up, 'sm')}px) {
+  @include generate-columns('sm');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'md')}px) {
+  @include generate-columns('md');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'lg')}px) {
+  @include generate-columns('lg');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'xl')}px) {
+  @include generate-columns('xl');
+}

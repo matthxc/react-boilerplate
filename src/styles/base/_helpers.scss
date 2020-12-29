@@ -1,0 +1,342 @@
+// Utils
+.w100 {
+  width: 100%;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-size {
+  &-small {
+    font-size: 0.7rem;
+  }
+  &-medium {
+    font-size: 1.5rem;
+  }
+  &-large {
+    font-size: 2rem;
+  }
+  &-huge {
+    font-size: 3rem;
+  }
+}
+
+.text-color {
+  &-primary {
+    color: $main-color;
+  }
+  &-secondary {
+    color: $second-color;
+  }
+}
+
+// Spacings
+@mixin margins($break: '') {
+  .margin {
+    &-all#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin: 0;
+      }
+      &-half {
+        margin: 0.5rem;
+      }
+      &-one {
+        margin: 1rem;
+      }
+      &-two {
+        margin: 2rem;
+      }
+      &-three {
+        margin: 3rem;
+      }
+    }
+    &-y#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      &-half {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      &-one {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      &-two {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+      &-three {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+    }
+    &-x#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      &-half {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+      }
+      &-one {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+      &-two {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+      &-three {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    }
+    &-t#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin-top: 0;
+      }
+      &-half {
+        margin-top: 0.5rem;
+      }
+      &-one {
+        margin-top: 1rem;
+      }
+      &-two {
+        margin-top: 2rem;
+      }
+      &-three {
+        margin-top: 3rem;
+      }
+    }
+    &-b#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin-bottom: 0;
+      }
+      &-half {
+        margin-bottom: 0.5rem;
+      }
+      &-one {
+        margin-bottom: 1rem;
+      }
+      &-two {
+        margin-bottom: 2rem;
+      }
+      &-three {
+        margin-bottom: 3rem;
+      }
+    }
+    &-l#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin-left: 0;
+      }
+      &-half {
+        margin-left: 0.5rem;
+      }
+      &-one {
+        margin-left: 1rem;
+      }
+      &-two {
+        margin-left: 2rem;
+      }
+      &-three {
+        margin-left: 3rem;
+      }
+    }
+    &-r#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        margin-right: 0;
+      }
+      &-half {
+        margin-right: 0.5rem;
+      }
+      &-one {
+        margin-right: 1rem;
+      }
+      &-two {
+        margin-right: 2rem;
+      }
+      &-three {
+        margin-right: 3rem;
+      }
+    }
+  }
+}
+
+@mixin paddings($break: '') {
+  .padding {
+    &-all#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding: 0;
+      }
+      &-half {
+        padding: 0.5rem;
+      }
+      &-one {
+        padding: 1rem;
+      }
+      &-two {
+        padding: 2rem;
+      }
+      &-three {
+        padding: 3rem;
+      }
+    }
+    &-y#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      &-half {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      &-one {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      &-two {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      &-three {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+    &-x#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      &-half {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+      &-one {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+      &-two {
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
+      &-three {
+        padding-right: 3rem;
+        padding-left: 3rem;
+      }
+    }
+    &-t#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding-top: 0;
+      }
+      &-half {
+        padding-top: 0.5rem;
+      }
+      &-one {
+        padding-top: 1rem;
+      }
+      &-two {
+        padding-top: 2rem;
+      }
+      &-three {
+        padding-top: 3rem;
+      }
+    }
+    &-b#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding-bottom: 0;
+      }
+      &-half {
+        padding-bottom: 0.5rem;
+      }
+      &-one {
+        padding-bottom: 1rem;
+      }
+      &-two {
+        padding-bottom: 2rem;
+      }
+      &-three {
+        padding-bottom: 3rem;
+      }
+    }
+    &-l#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding-left: 0;
+      }
+      &-half {
+        padding-left: 0.5rem;
+      }
+      &-one {
+        padding-left: 1rem;
+      }
+      &-two {
+        padding-left: 2rem;
+      }
+      &-three {
+        padding-left: 3rem;
+      }
+    }
+    &-r#{if($break != "", -#{$break}, "")} {
+      &-zero {
+        padding-right: 0;
+      }
+      &-half {
+        padding-right: 0.5rem;
+      }
+      &-one {
+        padding-right: 1rem;
+      }
+      &-two {
+        padding-right: 2rem;
+      }
+      &-three {
+        padding-right: 3rem;
+      }
+    }
+  }
+}
+
+@include margins;
+@include paddings;
+
+// Generate margins for all breakpoints
+@media (min-width: #{map-get($breakpoints-up, 'sm')}px) {
+  @include margins('sm');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'md')}px) {
+  @include margins('md');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'lg')}px) {
+  @include margins('lg');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'xl')}px) {
+  @include margins('xl');
+}
+
+//Generate paddings for all breakpoints
+@media (min-width: #{map-get($breakpoints-up, 'sm')}px) {
+  @include paddings('sm');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'md')}px) {
+  @include paddings('md');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'lg')}px) {
+  @include paddings('lg');
+}
+
+@media (min-width: #{map-get($breakpoints-up, 'xl')}px) {
+  @include paddings('xl');
+}

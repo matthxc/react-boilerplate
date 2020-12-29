@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "sourceMap": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@Actions": ["src/Actions"],
+      "@Styles": ["src/Styles"],
+      "@Styles/*": ["src/Styles/*"],
+      "@Components/*": ["src/Components/*"],
+      "@Components": ["src/Components"],
+      "@Interfaces": ["src/Interfaces"],
+      "@Interfaces/*": ["src/Interfaces/*"],
+      "@Pages": ["src/Pages"],
+      "@Pages/*": ["src/Pages/*"],
+      "@Reducers": ["src/Store/Reducers"],
+      "@Reducers/*": ["src/Store/Reducers/*"],
+      "@Redux": ["src/Store"],
+      "@Redux/*": ["src/Store/*"],
+      "@Test/*": ["__tests__/*"],
+      "@Graphql/*": ["src/Graphql/*"],
+      "@Graphql": ["src/Graphql"],
+      "@Utils": ["src/utils"]
+    }
+  },
+  "exclude": ["node_modules", "dist", ".babelrc", "bundles", "coverage"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
