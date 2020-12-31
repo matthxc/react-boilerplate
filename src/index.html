@@ -1,54 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- The first thing in any HTML file should be the charset -->
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 
   <!-- Make the page mobile compatible -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="icon" href="/favicon.ico" />
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
   <title>[Project Name]</title>
 
   <style>
+    .PageLoader-title {
+      font-size: 1.125rem;
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 0.0075em;
+      margin: 0;
+    }
+
+    @media (min-width: 960px) {
+      .PageLoader-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .PageLoader-title {
+        font-size: 1.25rem;
+      }
+    }
+
     .PageLoader--initial-load {
       position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10000;
+      width: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-flow: column;
+      flex-direction: column;
+      z-index: 10000;
       background-color: white;
-      width: 100%;
-      height: 100vh;
     }
 
     .no-script-message {
       margin-bottom: 1em;
       color: rgba(0, 0, 0, 0.65);
       padding: 0 1em;
+      font-size: 1.125rem;
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     }
   </style>
 </head>
 
 <body>
   <div class="PageLoader PageLoader--initial-load">
-    <div class="ant-spin ant-spin-spinning"><i aria-label="icon: loading" class="anticon anticon-loading ant-spin-dot"
-        style="font-size: 64px; width: 64px; height: 64px;"><svg viewBox="0 0 1024 1024" focusable="false"
-          class="anticon-spin" data-icon="loading" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-          <path
-            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z">
-          </path>
-        </svg></i></div>
-    <h4 class="ant-typography">Loading...</h4>
+    <div
+      class="MuiCircularProgress-root margin-b-one MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      role="progressbar" style="width: 3rem; height: 3rem">
+      <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+        <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44" r="20.2"
+          fill="none" stroke-width="3.6"></circle>
+      </svg>
+    </div>
+    <h6 class="PageLoader-title">Loading...</h6>
 
     <!-- Display a message if JS has been disabled on the browser. -->
     <noscript>
-
       <div class="no-script-message">
         If you're seeing this message, that means
         <strong>JavaScript has been disabled on your browser</strong>, please
