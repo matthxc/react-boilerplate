@@ -1,88 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- The first thing in any HTML file should be the charset -->
+    <meta charset="utf-8" />
 
-<head>
-  <!-- The first thing in any HTML file should be the charset -->
-  <meta charset="utf-8" />
+    <!-- Make the page mobile compatible -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Make the page mobile compatible -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
 
-  <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
 
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" as="style" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <title>[Project Name]</title>
 
-  <title>[Project Name]</title>
+    <% for (var chunk of htmlWebpackPlugin.files.js) { %>
+    <link rel="preload" href="<%= chunk %>" as="script">
+    <% } %> 
+    
+    <% for (var css of htmlWebpackPlugin.files.css) { %>
+    <link href="<%= css %>" rel="stylesheet" />
+    <% } %>
 
-  <style>
-    .PageLoader-title {
-      font-size: 1.125rem;
-      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-      font-weight: 500;
-      line-height: 1.6;
-      letter-spacing: 0.0075em;
-      margin: 0;
-    }
-
-    @media (min-width: 960px) {
+    <style>
       .PageLoader-title {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        font-weight: 500;
+        line-height: 1.6;
+        letter-spacing: 0.0075em;
+        margin: 0;
       }
-    }
 
-    @media (min-width: 600px) {
-      .PageLoader-title {
-        font-size: 1.25rem;
+      @media (min-width: 960px) {
+        .PageLoader-title {
+          font-size: 1.25rem;
+        }
       }
-    }
 
-    .PageLoader--initial-load {
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 10000;
-      background-color: white;
-    }
+      @media (min-width: 600px) {
+        .PageLoader-title {
+          font-size: 1.25rem;
+        }
+      }
 
-    .no-script-message {
-      margin-bottom: 1em;
-      color: rgba(0, 0, 0, 0.65);
-      padding: 0 1em;
-      font-size: 1.125rem;
-      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    }
-  </style>
-</head>
+      .PageLoader--initial-load {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10000;
+        background-color: white;
+      }
 
-<body>
-  <div class="PageLoader PageLoader--initial-load">
-    <div
-      class="MuiCircularProgress-root margin-b-one MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-      role="progressbar" style="width: 3rem; height: 3rem">
-      <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
-        <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44" r="20.2"
-          fill="none" stroke-width="3.6"></circle>
-      </svg>
-    </div>
-    <h6 class="PageLoader-title">Loading...</h6>
+      .no-script-message {
+        margin-bottom: 1em;
+        color: rgba(0, 0, 0, 0.65);
+        padding: 0 1em;
+        font-size: 1.125rem;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      }
+    </style>
+  </head>
 
-    <!-- Display a message if JS has been disabled on the browser. -->
-    <noscript>
-      <div class="no-script-message">
-        If you're seeing this message, that means
-        <strong>JavaScript has been disabled on your browser</strong>, please
-        <strong>enable JavaScript</strong> to make this app work.
+  <body>
+    <div class="PageLoader PageLoader--initial-load">
+      <div
+        class="MuiCircularProgress-root margin-b-one MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 3rem; height: 3rem"
+      >
+        <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            r="20.2"
+            fill="none"
+            stroke-width="3.6"
+          ></circle>
+        </svg>
       </div>
-    </noscript>
-  </div>
+      <h6 class="PageLoader-title">Loading...</h6>
 
-  <!-- The app hooks into this div -->
-  <div id="app"></div>
-</body>
+      <!-- Display a message if JS has been disabled on the browser. -->
+      <noscript>
+        <div class="no-script-message">
+          If you're seeing this message, that means
+          <strong>JavaScript has been disabled on your browser</strong>, please
+          <strong>enable JavaScript</strong> to make this app work.
+        </div>
+      </noscript>
+    </div>
 
+    <!-- The app hooks into this div -->
+    <div id="app"></div>
+
+    <% for (var chunk of htmlWebpackPlugin.files.js) { %>
+    <script
+      src="<%= chunk %>"
+      async
+    ></script>
+    <% } %>
+  </body>
 </html>

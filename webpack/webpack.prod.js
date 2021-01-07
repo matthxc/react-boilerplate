@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const merge = require('webpack-merge').default;
 const path = require('path');
+const crypto = require('crypto');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin')
@@ -85,7 +86,7 @@ module.exports = merge(commonConfig, {
         },
         commons: {
           name: 'commons',
-          minChunks: 1,
+          minChunks: 2,
           priority: 20,
         },
         shared: {
@@ -178,7 +179,7 @@ module.exports = merge(commonConfig, {
         minifyCSS: true,
         minifyURLs: true,
       },
-      inject: true,
+      inject: false,
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',

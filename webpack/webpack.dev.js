@@ -58,7 +58,7 @@ module.exports = merge(commonConfig, {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       filename: 'index.html',
-      inject: true,
+      inject: false,
     }),
   ],
 });

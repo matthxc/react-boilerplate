@@ -9,7 +9,7 @@ module.exports = {
       assertions: {
         'categories:performance': [
           'error',
-          { minScore: 0.90, aggregationMethod: 'median' },
+          { minScore: 1, aggregationMethod: 'median' },
         ],
       },
     },
@@ -18,7 +18,7 @@ module.exports = {
         "chrome-flags": "--ignore-certificate-errors"
       },
       url: process.env.BASE_URL,
-      numberOfRuns: 20,
+      numberOfRuns: 10,
     },
   },
 };

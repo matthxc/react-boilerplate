@@ -1,5 +1,5 @@
 {
-  "name": "bog001-burger-queen",
+  "name": "@matthxc/react-boilerplate",
   "version": "1.0.0",
   "description": "React Boilerplate",
   "repository": {
@@ -44,6 +44,7 @@
     }
   },
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "core-js": "^3.8.1",
@@ -55,10 +56,12 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-react-jsx-source": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-stage-2": "^7.8.3",
+    "@babel/preset-typescript": "^7.12.7",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@lhci/cli": "^0.6.1",
@@ -68,6 +71,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.9",
     "@types/jest": "^26.0.19",
+    "@types/loadable__component": "^5.13.1",
     "@types/node": "^14.14.16",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -83,7 +87,6 @@
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
-    "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",

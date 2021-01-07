@@ -1,20 +1,21 @@
 // External Libraries
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
 // Material UI
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 export const HomePage: React.FC<{}> = () => (
   <Container>
-    <Typography align="center" variant="h1">
-      Home page
-    </Typography>
-    <Button component={Link} variant="contained" color="primary" to="/sss">
-      Hello world
-    </Button>
+    <Card>
+      <CardContent>
+        <Typography align="center" variant="h1">
+          404. Not Found.
+        </Typography>
+      </CardContent>
+    </Card>
   </Container>
 );
 
